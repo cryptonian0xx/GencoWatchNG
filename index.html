@@ -335,6 +335,68 @@
             border-color: var(--secondary);
         }
         
+        /* Explainer Sections */
+        .explainer {
+            background: linear-gradient(135deg, rgba(0, 255, 159, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border-left: 3px solid var(--primary);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .explainer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+            animation: explainerPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes explainerPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .explainer-title {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .explainer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .explainer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .explainer strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .explainer ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .explainer li {
+            margin-bottom: 0.25rem;
+        }
+        
         /* Loading */
         .loading-spinner {
             width: 50px;
@@ -806,6 +868,19 @@
                 </div>
             </div>
 
+            <!-- Explainer for Real-time Stats -->
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-info-circle me-2"></i>Understanding Real-time Stats</div>
+                        <p><strong>Current Generation:</strong> This shows all real-time reported Genco production aggregated across all active power stations. The figure updates automatically every 30 seconds to reflect the total megawatts (MW) being generated at this moment.</p>
+                        <p><strong>Active Stations:</strong> The number of stations currently online and producing electricity to the grid. A higher ratio indicates better grid capacity and redundancy.</p>
+                        <p><strong>Fuel Mix:</strong> All Gencos are classified by their primary energy source—Gas, Hydro, or Steam-driven turbines. Some steam turbines also have gas drivers. The "Primary" indicator shows the leading fuel type powering the nation right now.</p>
+                        <p><strong>Top Generator:</strong> The highest producing station right now on electricity production. This station is currently contributing the most megawatts to the national grid.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- NEW: Today vs Yesterday Comparison -->
             <div class="row mt-3">
                 <div class="col-12">
@@ -832,6 +907,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explainer for Daily Comparison -->
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-info-circle me-2"></i>Understanding Daily Comparison</div>
+                        <p>This section compares yesterday's and today's generation at the same time. It helps identify trends, improvements, or declines in power generation day-over-day. A significant difference may indicate changes in demand, fuel availability, or station operational status.</p>
                     </div>
                 </div>
             </div>
@@ -899,6 +984,20 @@
                 </div>
             </div>
 
+            <!-- Explainer for System Health & Regional Distribution -->
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-info-circle me-2"></i>Understanding System Health Metrics</div>
+                        <p><strong>Grid Stability:</strong> Indicates how consistently power is being delivered across active stations. Higher percentages suggest stable, reliable generation.</p>
+                        <p><strong>Generation Capacity:</strong> Shows the percentage of total installed capacity currently in use. Low values may indicate maintenance, fuel shortages, or stations offline.</p>
+                        <p><strong>Station Availability:</strong> The proportion of total stations currently online and operational. A higher percentage indicates better system redundancy.</p>
+                        <p><strong>Fuel Diversity:</strong> Measures how diversified the energy sources are. Higher diversity reduces dependency on a single fuel type, improving resilience against supply disruptions.</p>
+                        <p><strong>Regional Distribution:</strong> Shows power generation distributed across different geographical regions of Nigeria, helping identify regional capacity and bottlenecks.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Stations Row -->
             <div class="row mt-3">
                 <div class="col-12">
@@ -932,6 +1031,23 @@
                 </div>
             </div>
 
+            <!-- Explainer for Power Stations -->
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-info-circle me-2"></i>Understanding Power Stations Data</div>
+                        <p>This section displays all 33 power stations in Nigeria's grid with their current generation status. Each station card shows:</p>
+                        <ul>
+                            <li><strong>Station Name:</strong> The official name of the power generating facility</li>
+                            <li><strong>Fuel Type:</strong> Whether the station is powered by Gas, Hydro (water), or Steam turbines</li>
+                            <li><strong>Current Output:</strong> Real-time megawatt (MW) generation from that station</li>
+                            <li><strong>Status:</strong> Online (green) indicates active generation, Offline (red) means the station is not currently feeding power to the grid</li>
+                        </ul>
+                        <p class="mb-0">Use the search box to filter stations by name, or click "Show More" to expand the full list of all stations across Nigeria.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Charts Row -->
             <div class="row mt-3">
                 <div class="col-lg-6 mb-3">
@@ -955,6 +1071,46 @@
                                 <!-- Will be populated by JavaScript -->
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explainer for Charts Section -->
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-info-circle me-2"></i>Understanding Generation Charts</div>
+                        <p><strong>Generation by Fuel Type:</strong> This donut chart visualizes the total megawatt contribution from each fuel source (Gas, Hydro, Steam). It provides an instant overview of Nigeria's current energy mix and dependency on each fuel type.</p>
+                        <p><strong>Top 5 Stations:</strong> Lists the five highest-producing power stations at this moment. These are the backbone of current grid supply and typically include major hydro and gas plants.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explainer for Understanding Zero MW and Data Fluctuations -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="explainer">
+                        <div class="explainer-title"><i class="fas fa-exclamation-triangle me-2"></i>Understanding 0MW Readings & Data Fluctuations</div>
+                        <p><strong>What does 0MW mean?</strong> Not all 0MW readings indicate a catastrophic grid collapse. The data can show 0MW or very low readings for several operational and technical reasons:</p>
+                        
+                        <ul>
+                            <li><strong>Load Rebalancing:</strong> When the grid redistributes power loads across stations, brief dips or drops can occur as generation is shifted between units.</li>
+                            <li><strong>Station Switching:</strong> Routine operational switching between turbines, generators, or power sources can temporarily reduce or zero out readings from individual stations.</li>
+                            <li><strong>Scheduled Maintenance:</strong> Planned maintenance, testing, or upgrades can take stations offline temporarily, showing 0MW during those periods.</li>
+                            <li><strong>Low Gas Supply:</strong> Readings below 1,000MW often indicate reduced gas supply to gas-fired stations rather than full grid collapse.</li>
+                            <li><strong>Data & SCADA Anomalies:</strong> Communication failures, sensor errors, or logging delays in the SCADA (Supervisory Control and Data Acquisition) system can cause temporary data gaps or incorrect 0MW readings.</li>
+                        </ul>
+                        
+                        <p><strong>Identifying True Grid Collapse:</strong> A catastrophic grid collapse is characterized by:</p>
+                        <ul>
+                            <li>0MW readings persisting for 12-36 hours or longer</li>
+                            <li>Both GencoWatchNG <strong>and</strong> DiscoWatchNG showing 0MW simultaneously for extended periods</li>
+                            <li>In the case of DiscoWatch, at least two consecutive low readings (less than 1,000MW) over the minimum 12-hour threshold</li>
+                        </ul>
+                        
+                        <p><strong>Non-catastrophic Collapses:</strong> Grid can experience partial or brief collapses that resolve within a few hours. These may show as temporary 0MW or very low readings but do not represent total system failure.</p>
+                        
+                        <p class="mb-0"><em>Always cross-reference data with DiscoWatchNG and check for sustained low readings before concluding a major grid event.</em></p>
                     </div>
                 </div>
             </div>
@@ -1161,11 +1317,40 @@
         // NEW: Update regional distribution
         function updateRegionalDistribution(stations) {
             const regions = {
-                'North': ['Shiroro', 'Kainji', 'Jebba'],
-                'South': ['Afam', 'Trans-Amadi', 'Rivers', 'Omoku'],
-                'East': ['Alaoji', 'Calabar', 'Ibom'],
-                'West': ['Egbin', 'Olorunsogo', 'Paras', 'Omotosho'],
-                'Central': ['Sapele', 'Okpai', 'Ogorode', 'Delta']
+                'North': [
+                    'Shiroro',
+                    'Kainji',
+                    'Jebba',
+                    'Zungeru',
+                    'Kashimbila',
+                    'Dadin Kowa',
+                    'Geregu'
+                ],
+                'South-South': [
+                    'Afam',
+                    'Trans-Amadi',
+                    'Rivers',
+                    'Omoku',
+                    'Sapele',
+                    'Okpai',
+                    'Delta',
+                    'Ogorode',
+                    'Ibom',
+                    'Ihovbor',
+                    'Azura',
+                    'Gbarain'
+                ],
+                'South-East': [
+                    'Alaoji',
+                    'Odukpani'
+                ],
+                'South-West': [
+                    'Egbin',
+                    'Olorunsogo',
+                    'Paras',
+                    'Omotosho',
+                    'Taopex'
+                ]
             };
 
             const regionData = {};
